@@ -3,16 +3,16 @@ module register
 #(
 	parameter BIT_COUNT = 8
 ) (
-	input clk,
-	input write_en,
-	input out_en,
+	input 		      clk,
+	input 		      write_en,
+	input 		      read_en,
 	input [BIT_COUNT-1:0] reg_in,
 	input [BIT_COUNT-1:0] reg_out
 );
 
 reg [BIT_COUNT-1:0] reg_val;
 
-assign reg_out = out_en ? reg_val : {BIT_COUNT{1'bz}};
+assign reg_out = read_en ? reg_val : {BIT_COUNT{1'bz}};
 
 always @(posedge clk) begin
 	if (write_en) begin
