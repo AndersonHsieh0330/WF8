@@ -6,16 +6,16 @@ module ram #(
 	parameter WORD_LINE = 256, // address are 8 bits
 	parameter BIT_LINE = 8     // byte addressable, 8^7 = 256
 ) (
-	input 			   clk,
-	input 			   reset,
+	input  wire 			   clk,
+	input  wire 			   reset,
 	
-	input  wire [7:0] 	   addr_in_port_1, 
-	input  wire [7:0] 	   addr_in_port_2,
+	input  wire [7:0] 	   	   addr_in_port_1, 
+	input  wire [7:0] 	   	   addr_in_port_2,
 	input  wire [BIT_LINE-1:0] data_in_port_1,
-	input  wire 		   write_en,
+	input  wire 		       write_en,
 	
-	output reg  [BIT_LINE-1:0] data_out_port_2,
 	output reg  [BIT_LINE-1:0] data_out_port_1,
+	output reg  [BIT_LINE-1:0] data_out_port_2,
 );
 
 reg [BIT_LINE-1:0] memory [WORD_LINE-1:0];
