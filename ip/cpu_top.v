@@ -1,7 +1,7 @@
 `default_nettype none
 module cput_top (
     input wire clk,
-    input wire reset
+    input wire rst
 );
 
 /*
@@ -11,7 +11,7 @@ wire [7:0] cpu_bus;
 
 register_top register_insts (
     .clk(clk),
-    .reset(reset),
+    .rst(rst),
     .cpu_bus(cpu_bus),
     .write_en(),
     .read_en(),
@@ -43,7 +43,7 @@ wire                       control_alu_b_sel;
 wire                       control_mem_write_en;
 
 control control_inst (
-    .opcode(),
+    .opcode(ram_insn[7:4]),
     .alu_mode(control_alu_mode),
     .reg_b_write_en(control_reg_b_write_en),
     .alu_a_sel(control_alu_a_sel),  
@@ -51,29 +51,37 @@ control control_inst (
     .mem_write_en(control_mem_write_en)
 );
 
-wire [7:0] insn,
-wire [7:0] decode_imm_out,
-wire [7:0] decode_reg_out 
+wire [7:0] insn;
+wire [3:0] decode_imm_out;
+wire [2:0] decode_reg_b
 
 insn_decoder decode_inst (
-    .insn(),
+    .insn(ram_insn),
     .imm_out(decode_imm_out),
-    .reg_out(decode_reg_out)
+    .reg_bl(decode_reg_b)
 );
 
-wire [7:0] insn;
+wire [7:0] reg_xxx_read_en;
+wire [7:0] reg_xxx_write_en;
+reg_rw_sel reg_rw_sel_inst (
+	.reg_b_addr(decode_reg_b),
+	.reg_b_read_en(control_),
+	.reg_b_write_en(control_reg_b_write_en),
+	.read_en(reg_xxx_read_en),
+	.write_en(reg_xxx_write_en)
+);
+
+wire [7:0] ram_insn;
+wire [7:0] ram_out;
 ram ram_inst (
     .clk(clk),
-    .reset(reset),
-    .addr_in_port_1(), 
-    .addr_in_port_2(),
+    .rst(rst),
+    .addr_in_port_1(pc), 
+    .addr_in_port_2(cpu_bus),
     .data_in_port_1(cpu_bus),
     .write_en(control_mem_write_en),
-    .data_out_port_1(insn),
-    .data_out_port_2(),
-
+    .data_out_port_1(ram_insn),
+    .data_out_port_2(ram_out),
 );
-wire data_out_port_2,
-wire data_out_port_1,
 
 endmodule

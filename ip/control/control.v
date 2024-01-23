@@ -4,7 +4,8 @@
 module control (
     input  wire [4:0]                 opcode,
     output reg  [`ALU_MODE_COUNT-1:0] alu_mode,
-    output wire                       reg_b_write_en, // register file write enable
+    output wire                       reg_b_write_en, // only if reg_b needs to occupy cpu_bus
+    output wire                       reg_b_read_en, // only if reg_b needs to occupy cpu_bus
     output wire                       alu_a_sel,   // LOW for accumulator, HIGH for PC 
     output wire                       alu_b_sel,   // LOW for reg x0 ~ x6, HIGH for immediate value
     output wire                       mem_write_en
@@ -30,7 +31,10 @@ always @(*) begin
 end
 
 // add, addi, sh, shi, not, and, or, xor, cpy, cpypc, lb
-assign rf_write_en = ~opcode[4] | (opcode[4] & ~opcode[3] & ~opcode[2]);
+assign reg_b_write_en = ~opcode[4] | (opcode[4] & ~opcode[3] & ~opcode[2]);
+
+// add, sh, and, or, xor, cpy, sb, jmpadr
+assign reg_b_read_en = 
 
 // jmpi, blt, bge, beq, bneq, and cpypc
 assign alu_a_sel = (opcode[4] & opcode[3]) | (opcode == 5'b10001); 
