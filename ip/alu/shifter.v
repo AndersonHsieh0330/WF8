@@ -1,5 +1,4 @@
 `default_nettype none
-`timescale 1ps/1ps
 //-- TODO: see if we need overflow/underflow detection
 module shifter 
 #(

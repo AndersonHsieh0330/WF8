@@ -1,3 +1,4 @@
+`include "/ip/util/params.vh"
 `default_nettype none
 module branch_compare (
     input  wire a,
@@ -14,7 +15,7 @@ xor_comparator comparator_inst (
 	.a(a), 
 	.b(b), 
 	.xor_result(xor_comparator_out),
-	.equal(bc_flags[`ALU_FLAG_EQ]),
+	.equal(bc_flags[`BC_FLAG_EQ]),
 	.a_larger(comp_a_larger) // note that a is reg_acc, so inversed
 );
 

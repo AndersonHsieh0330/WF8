@@ -4,8 +4,7 @@
 * use behavior module because I want vivado compiler to use dsp block
 * instead of LUTs
 */
-(* use_dsp = "yes" *) module adder
-#(
+module adder #(
 	BIT_COUNT = 8
 )
 (

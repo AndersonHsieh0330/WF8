@@ -1,4 +1,4 @@
-`include "param.vh"
+`include "/ip/util/params.vh"
 `default_nettype none
 `timescale 1ps/1ps
 module control (

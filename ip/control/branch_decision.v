@@ -1,6 +1,6 @@
 `default_nettype none
 `timescale 1ps/1ps
-`include "param.vh"
+`include "/ip/util/params.vh"
 // this module is used to generate pc_sel signal
 module branch_decision (
     input  wire [4:0]                 opcode,

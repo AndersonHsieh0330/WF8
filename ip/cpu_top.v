@@ -1,4 +1,5 @@
 `default_nettype none
+`include "/ip/util/params.vh"
 module cput_top (
     input wire clk,
     input wire rst
@@ -18,6 +19,8 @@ wire [7:0] alu_b;
 wire [7:0] alu_c;
 
 wire [`BC_FLAG_COUNT-1:0] bc_flags;
+
+wire bd_pc_sel;
 
 wire [`ALU_MODE_COUNT-1:0] control_alu_mode;
 wire                       control_reg_b_write_en
@@ -73,7 +76,6 @@ branch_compare (
 	.bc_flags(bc_flags)
 );
 
-wire bd_pc_sel;
 branch_decision (
 	.opcode(ram_insn[7:3]),
 	.bc_flags(bc_flags),

@@ -1,5 +1,4 @@
 `default_nettype none
-`timescale 1ps/1ps
 module xor_comparator
 #(
 	parameter BIT_COUNT = 8
