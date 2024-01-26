@@ -9,8 +9,7 @@ module alu
 	input  wire [BIT_COUNT-1:0] 	  a, // reg_acc or PC
 	input  wire [BIT_COUNT-1:0] 	  b, // reg x0 ~ x6 or immediate value
 	input  wire [`ALU_MODE_COUNT-1:0] alu_mode,
-	output wire [BIT_COUNT-1:0] 	  c,
-	output wire [`ALU_FLAG_COUNT-1:0] alu_flags
+	output wire [BIT_COUNT-1:0] 	  c
 );
 wire [3:0] imm;
 assign imm = b[3:0];

@@ -3,8 +3,8 @@ module register_top (
 	input  wire 	  clk,
 	input  wire       rst,
 	inout  wire [7:0] cpu_bus,
-	input  wire [7:0] write_en,
-	input  wire [7:0] read_en,
+	input  wire [7:0] xxx_write_en,
+	input  wire [7:0] xxx_read_en,
 	input  wire [7:0] reg_acc_in,
 	output wire [7:0] reg_acc_out
 );

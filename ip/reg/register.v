@@ -48,6 +48,28 @@ always @(posedge clk) begin
         reg_val <= {BIT_COUNT{1'bz}}
     end else if (write_en) begin
 		reg_val <= reg_in;
+	end else begin
+		reg_val <= reg_val;
+	end
+end
+
+endmodule
+
+module register_no_r_w_en
+#(
+	parameter BIT_COUNT = 8
+) (
+	input  wire		            clk,
+    input  wire                 rst,
+	input  wire [BIT_COUNT-1:0] reg_in,
+	output reg  [BIT_COUNT-1:0] reg_out
+);
+
+always @(posedge clk) begin
+    if (rst) begin
+        reg_out <= {BIT_COUNT{1'b0}}
+	end else begin
+		reg_out <= reg_in;
 	end
 end
 
