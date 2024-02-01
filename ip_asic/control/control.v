@@ -8,6 +8,7 @@ module control (
     output wire                       reg_b_read_en, // only if reg_b needs to occupy cpu_bus
     output wire                       alu_a_sel,   // LOW for accumulator, HIGH for PC 
     output wire                       alu_b_sel,   // LOW for reg x0 ~ x6, HIGH for immediate value
+    output wire                       pc_bus_en,   // only pc needs to occupy cpu_bus
     output wire                       mem_write_en
 );
 

@@ -54,11 +54,13 @@ register_top register_insts (
 // +1 pc adder + pc_sel mux
 assign pc_in = bd_pc_sel ? cpu_bus : pc + 1;
 
-register_no_r_w_en pc_inst (
+register_bypass_out_no_w_en pc_inst (
 	.clk(clk),
 	.rst(rst),
+	.read_en(pc_bus_en),
 	.reg_in(pc_in),
-	.reg_out(pc)
+	.reg_out(cpu_bus),
+	.bypass_out(pc)
 );
 
 assign alu_a = alu_a_sel ? pc : reg_acc;

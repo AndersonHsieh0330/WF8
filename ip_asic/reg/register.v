@@ -55,19 +55,26 @@ end
 
 endmodule
 
-module register_no_r_w_en
+module register_bypass_out_no_w_en
 #(
 	parameter BIT_COUNT = 8
 ) (
 	input  wire		            clk,
     input  wire                 rst,
+	input  wire 				read_en,
 	input  wire [BIT_COUNT-1:0] reg_in,
-	output reg  [BIT_COUNT-1:0] reg_out
+	output wire [BIT_COUNT-1:0] reg_out,
+	output wire [BIT_COUNT-1:0] bypass_out
 );
+
+reg [BIT_COUNT-1:0] reg_val;
+
+assign bypass_out = reg_val;
+assign reg_out = read_en ? reg_val : {BIT_COUNT{1'bz}};
 
 always @(posedge clk) begin
     if (rst) begin
-        reg_out <= {BIT_COUNT{1'b0}}
+        reg_val  <= {BIT_COUNT{1'b0}}
 	end else begin
 		reg_out <= reg_in;
 	end
