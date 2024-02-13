@@ -9,9 +9,10 @@
 `define ALU_MODE_NOT       2
 `define ALU_MODE_AND       3
 `define ALU_MODE_OR        4
-`define ALU_MODE_BYPASS_A  5       
-`define ALU_MODE_BYPASS_B  6       
-`define ALU_MODE_COUNT     7      
+`define ALU_MODE_XOR       5
+`define ALU_MODE_BYPASS_A  6       
+`define ALU_MODE_BYPASS_B  7       
+`define ALU_MODE_COUNT     8      
 
 //--- utility ---//
 `define LINE_COUNT           10               // change this to match line count of benchmark file

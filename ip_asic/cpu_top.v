@@ -28,6 +28,7 @@ wire                       control_reg_b_read_en
 wire                       control_alu_a_sel;
 wire                       control_alu_b_sel;
 wire                       control_mem_write_en;
+wire					   control_mem_out_en;
 
 wire [3:0] decode_imm_out;
 wire [2:0] decode_reg_b
@@ -69,12 +70,9 @@ alu alu_inst (
     .a(alu_a),
     .b(alu_b),
     .alu_mode(control_alu_mode),
-    .c(alu_c)
-);
-
-branch_compare (
-	.a(reg_acc),
-	.b(cpu_bus), // reg_b
+	.reg_acc(reg_acc),
+	.cpu_bus(cpu_bus),
+    .c(alu_c),
 	.bc_flags(bc_flags)
 );
 
@@ -91,7 +89,8 @@ control control_inst (
 	.reg_b_read_en(control_reg_b_read_en),
     .alu_a_sel(control_alu_a_sel),  
     .alu_b_sel(control_alu_b_sel),  
-    .mem_write_en(control_mem_write_en)
+    .mem_write_en(control_mem_write_en),
+    .mem_out_en(control_mem_out_en)
 );
 
 insn_decoder decode_inst (
@@ -115,6 +114,7 @@ ram ram_inst (
     .addr_in_port_2(cpu_bus),
     .data_in_port_1(cpu_bus),
     .write_en(control_mem_write_en),
+    .out_en(control_mem_out_en),
     .data_out_port_1(ram_insn),
     .data_out_port_2(ram_out)
 );

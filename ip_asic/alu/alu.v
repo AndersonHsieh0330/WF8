@@ -9,7 +9,10 @@ module alu
 	input  wire [BIT_COUNT-1:0] 	  a, // reg_acc or PC
 	input  wire [BIT_COUNT-1:0] 	  b, // reg x0 ~ x6 or immediate value
 	input  wire [`ALU_MODE_COUNT-1:0] alu_mode,
-	output wire [BIT_COUNT-1:0] 	  c
+	input  wire [BIT_COUNT-1:0]		  reg_acc,
+	input  wire [BIT_COUNT-1:0]		  cpu_bus, // reg_b
+	output wire [BIT_COUNT-1:0] 	  c,
+    output wire [BC_FLAG_COUNT-1:0]   bc_flags
 );
 wire [3:0] imm;
 assign imm = b[3:0];
@@ -45,14 +48,29 @@ assign isa_and_result = a & b;
 wire [BIT_COUNT-1:0] isa_or_result;
 assign isa_or_result = a | b;
 
+//--- xor, branch flags
+wire [BIT_COUNT-1:0] xor_comparator_out;
+wire				 comp_a_larger;
+
+assign bc_flags[`BC_FLAG_GT] = ~comp_a_larger;
+xor_comparator comparator_inst (
+	.a(reg_acc), 
+	.b(cpu_bus), //reg_b
+	.xor_result(xor_comparator_out),
+	.equal(bc_flags[`BC_FLAG_EQ]),
+	.a_larger(comp_a_larger) // note that a is reg_acc, so inversed
+);
+
+
 //--- output enable based on insn enable
 assign c = 
-	(adder_output & {8{alu_mode[`ALU_MODE_ADD]}}) 	  |
-	(shifter_output & {8{alu_mode[`ALU_MODE_SHIFT]}}) |
-	(isa_not_result & {8{alu_mode[`ALU_MODE_NOT]}})	  |
-	(isa_and_result & {8{alu_mode[`ALU_MODE_AND]}})	  |
-	(isa_or_result & {8{alu_mode[`ALU_MODE_OR]}})	  |							   |
-	(a & {8{alu_mode[`ALU_MODE_BYPASS_A]}})			  |
+	(adder_output & {8{alu_mode[`ALU_MODE_ADD]}}) 	    |
+	(shifter_output & {8{alu_mode[`ALU_MODE_SHIFT]}})   |
+	(isa_not_result & {8{alu_mode[`ALU_MODE_NOT]}})	    |
+	(isa_and_result & {8{alu_mode[`ALU_MODE_AND]}})	    |
+	(isa_or_result & {8{alu_mode[`ALU_MODE_OR]}})	    |
+	(xor_comparator_out & {8{alu_mode[`ALU_MODE_XOR]}}) |
+	(a & {8{alu_mode[`ALU_MODE_BYPASS_A]}})			    |
 	(b & {8{alu_mode[`ALU_MODE_BYPASS_B]}});
 
 endmodule
