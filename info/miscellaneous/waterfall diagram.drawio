@@ -1,0 +1,58 @@
+<mxfile host="Electron" modified="2024-02-14T04:12:24.312Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="cPjhyF5JuMux9HvAFAEc" version="22.1.16" type="device">
+  <diagram name="Page-1" id="YamTxJPXQYKCe8Oqt_FL">
+    <mxGraphModel dx="1080" dy="712" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="600" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-12" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=none;" edge="1" parent="1" source="5vSSc9Cswf03Oe8W7NMV-1" target="5vSSc9Cswf03Oe8W7NMV-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-1" value="Arithmetic Units" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;direction=west;size=40;" vertex="1" parent="1">
+          <mxGeometry x="130" y="245" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-5" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=none;" edge="1" parent="1" source="5vSSc9Cswf03Oe8W7NMV-2" target="5vSSc9Cswf03Oe8W7NMV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-2" value="Control Units" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="155" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-16" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=none;" edge="1" parent="1" source="5vSSc9Cswf03Oe8W7NMV-7" target="5vSSc9Cswf03Oe8W7NMV-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="410" />
+              <mxPoint x="310" y="515" />
+              <mxPoint x="70" y="515" />
+              <mxPoint x="70" y="145" />
+              <mxPoint x="183" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-7" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="200" y="385" width="70" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-8" value="" style="triangle;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="200" y="445" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-9" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Accumulator Register&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="205" y="415" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-15" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=none;" edge="1" parent="1" source="5vSSc9Cswf03Oe8W7NMV-1" target="5vSSc9Cswf03Oe8W7NMV-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-14" value="Storage Unit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="85" width="105" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-17" value="operand 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=default;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="166" y="205" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5vSSc9Cswf03Oe8W7NMV-20" value="operand 2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=default;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="270" y="205" width="60" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
