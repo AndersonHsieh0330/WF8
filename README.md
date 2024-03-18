@@ -1,22 +1,22 @@
 ## Overview
 This is a 8 bit "accumulator based" CPU, implementing custom ISA. 
-Check the [WF8 Documenetation](https://github.com/AndersonHsieh0330/WF8/info/WF8_doc.pdf) for more detailed documentation.
+Check the [WF8 Documenetation](https://github.com/AndersonHsieh0330/WF8/blob/master/info/WF8_doc.pdf) for more detailed documentation.
 
 ## Design Schematic
 WF8 has two version of verilog models:
 1. Piplined datapath for running on FPGAs as a "softcore CPU".
-![FPGA](https://github.com/AndersonHsieh0330/WF8/info/fpga/fpga_schematic.png?raw=true)
+![FPGA](https://github.com/AndersonHsieh0330/WF8/blob/master/info/fpga/fpga_schematic.png?raw=true)
 2. Single cycle architecture for ASIC tape-out.
-![ASIC](https://github.com/AndersonHsieh0330/WF8/info/asic/asic_schematic.png?raw=true)
+![ASIC](https://github.com/AndersonHsieh0330/WF8/blob/master/info/asic/asic_schematic.png?raw=true)
 
 ## Instruction Set Architecture
-Check [ISA excel sheet](https://github.com/AndersonHsieh0330/WF8/info/isa.xlsx) for full ISA specification. 
+Check [ISA excel sheet](https://github.com/AndersonHsieh0330/WF8/blob/maser/info/isa.xlsx) for full ISA specification. 
 
 Below is a screenshot of all the instructions for quick access
-![instruction_screenshot](https://github.com/AndersonHsieh0330/WF8/info/instructions_screenshot.png?raw=true)
+![instruction_screenshot](https://github.com/AndersonHsieh0330/WF8/blob/master/info/instructions_screenshot.png?raw=true)
 
 And there are some assembly code blocks that I wrote to ensure this ISA is capable of implementing most general purpose programs
-![example_instruction_block](https://github.com/AndersonHsieh0330/WF8/info/example_instruction_blocks.png?raw=true)
+![example_instruction_block](https://github.com/AndersonHsieh0330/WF8/blob/master/info/example_instruction_blocks.png?raw=true)
 
 ## Types of CPU organization and thoughts behind design choices
 Generally there are three types of CPUs
